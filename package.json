@@ -1,0 +1,22 @@
+{
+  "name": "prewow",
+  "version": "0.0.1",
+  "description": "A tool to quickly preview files in your browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V1RE/Prewow.git"
+  },
+  "keywords": [
+    "preview"
+  ],
+  "author": "Niels Mentink",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/V1RE/Prewow/issues"
+  },
+  "homepage": "https://github.com/V1RE/Prewow#readme"
+}
