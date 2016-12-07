@@ -6,5 +6,5 @@ An easy way to preview html, markdown and more!
 * Emoji shortcodes
 
 # TODO
-- [ ] Make server
+- [x] Make server
 - [ ] Detect filetype
