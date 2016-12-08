@@ -7,4 +7,4 @@ An easy way to preview html, markdown and more!
 
 # TODO
 - [x] Make server
-- [ ] Detect filetype
+- [x] Detect filetype
