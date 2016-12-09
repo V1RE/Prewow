@@ -1,10 +1,10 @@
-[
-  {
-    "filetype": ".md",
-    "compiler": "./parsers/markdown.js"
-  },
-  {
-    "filetype": ".json",
-    "compiler": "./parsers/json.js"
-  }
-]
+[{
+  "filetype": ".md",
+  "compiler": "./parsers/markdown.js"
+}, {
+  "filetype": ".json",
+  "compiler": "./parsers/json.js"
+}, {
+  "filetype": ".html",
+  "compiler": "./parsers/html.js"
+}]

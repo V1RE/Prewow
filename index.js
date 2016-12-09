@@ -4,11 +4,11 @@
 //
 
 // Import node packages
-const express = require("express");                   // Express-js server
-const fs = require("fs");                             // Filesystem
-const mkdirp = require("mkdirp");                     // Directory manager
-const path = require("path");                         // File path checker
-const program = require("commander");                 // Easier commandline options
+const express = require("express"); // Express-js server
+const fs = require("fs"); // Filesystem
+const mkdirp = require("mkdirp"); // Directory manager
+const path = require("path"); // File path checker
+const program = require("commander"); // Easier commandline options
 
 // Create vars and server
 var file;
@@ -21,7 +21,9 @@ program.version('0.0.1');
 program.usage('[options] <file ...>');
 program.arguments('<afile>');
 program.option('-v, --verbose', 'Output developer messages');
-program.action(function(afile) {file = path.resolve(afile);});
+program.action(function(afile) {
+  file = path.resolve(afile);
+});
 program.parse(process.argv);
 
 // Check if given file exists
@@ -35,7 +37,7 @@ fs.exists(file, function(exists) {
 
     // Start server on port 3000 serving ./.preview in dir of file
     app.use(express.static(path.dirname(file) + "/.preview"));
-    app.listen(3000, function () {
+    app.listen(3000, function() {
       verboselog("Started listening on port 3000");
     });
 
@@ -87,19 +89,3 @@ function setParser(filetype) {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
