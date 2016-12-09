@@ -9,6 +9,7 @@ const fs = require("fs"); // Filesystem
 const mkdirp = require("mkdirp"); // Directory manager
 const path = require("path"); // File path checker
 const program = require("commander"); // Easier commandline options
+const opn = require("opn"); // Program opener
 
 // Create vars and server
 var file;
@@ -37,7 +38,7 @@ fs.exists(file, function(exists) {
 
     // Start server on port 3000 serving ./.preview in dir of file
     app.use(express.static(path.dirname(file) + "/.preview"));
-    app.listen(3000, function() {
+    app.listen(1337, function() {
       verboselog("Started listening on port 3000");
     });
 
@@ -49,6 +50,9 @@ fs.exists(file, function(exists) {
 
     // Parse file for first time
     fileparser(file);
+
+    // Open webbrouwser
+    opn('http://127.0.0.1:1337');
 
     // Check for file updates
     fs.watchFile(file, function(curr, prev) {
