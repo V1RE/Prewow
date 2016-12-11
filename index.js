@@ -34,10 +34,10 @@ fs.exists(file, function(exists) {
     filetype = path.extname(file);
 
     // Create folder if it doesn't exist
-    mkfolder(path.dirname(file) + "/.preview");
+    mkfolder(__dirname + "/server");
 
-    // Start server on port 3000 serving ./.preview in dir of file
-    app.use(express.static(path.dirname(file) + "/.preview"));
+    // Start server on port 3000 serving __dirname/server/
+    app.use(express.static(__dirname + "/server"));
     app.listen(1337, function() {
       verboselog("Started listening on port 3000");
     });
@@ -49,9 +49,13 @@ fs.exists(file, function(exists) {
     fileparser = setParser(filetype);
 
     // Parse file for first time
-    fileparser(file);
+    readData(file, function (data) {
+      fileparser(data, function (parsedData) {
+        writePreview(parsedData);
+      });
+    });
 
-    // Open webbrouwser
+    // Open webbrowser
     opn('http://127.0.0.1:1337');
 
     // Check for file updates
@@ -92,4 +96,23 @@ function setParser(filetype) {
       return require(Parsers[i].compiler);
     }
   }
+}
+
+// Write parsed file to html file
+function writePreview(data) {
+  fs.writeFile(__dirname + "/server/index.html", data, function(err) {
+    if (err) {
+      throw err;
+    }
+  });
+}
+
+// Return file contents as string
+function readData(originFile, fn) {
+  fs.readFile(originFile, function(err, data) {
+    if (err) {
+      throw err;
+    }
+    fn(data.toString());
+  });
 }
