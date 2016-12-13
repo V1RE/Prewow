@@ -1,4 +1,5 @@
-#!/usr/bin/env nodejs
+#!/usr/bin/nodejs
+
 const prewow = require("../lib/prewow");
 const program = require("commander"); // Easier commandline options
 const path = require('path');
