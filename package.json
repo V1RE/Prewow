@@ -30,7 +30,8 @@
     "mkdirp": "^0.5.1",
     "nodedump": "0.0.8",
     "opn": "^4.0.2",
-    "twemoji": "^2.2.0"
+    "twemoji": "^2.2.0",
+    "argparse": "~1.0.9"
   },
   "preferGlobal": "true",
   "bin": {
